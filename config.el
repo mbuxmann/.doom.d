@@ -51,5 +51,14 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
-
 (setq org-image-actual-width nil)
+(setq neo-theme 'icons)
+(after! doom-themes
+(remove-hook 'doom-load-theme-hook #'doom-themes-neotree-config))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'before-save-hook 'php-cs-fixer-before-save)
+
+(use-package phpactor :ensure t)
+(use-package company-phpactor :ensure t)
+
+;; Key bindings
